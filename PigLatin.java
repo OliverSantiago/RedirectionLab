@@ -15,14 +15,25 @@ public class PigLatin{
     // System.out.println(pigLatin("skee"));
     // System.out.println(pigLatin("emu"));
     // System.out.println(pigLatin("grade"));
-    System.out.println(pigLatinBest("*emu"));
-    System.out.println(pigLatinBest("4chan"));
-    System.out.println(pigLatinBest("fish!"));
-    System.out.println(pigLatinBest("fish"));
-    System.out.println(pigLatinBest("the."));
-    System.out.println(pigLatinBest("cat!"));
-    System.out.println(pigLatinBest("amazing?"));
-    System.out.println(pigLatinBest("apple%"));
+    // System.out.println(pigLatinBest("*emu"));
+    // System.out.println(pigLatinBest("4chan"));
+    // System.out.println(pigLatinBest("fish!"));
+    // System.out.println(pigLatinBest("fish"));
+    // System.out.println(pigLatinBest("the."));
+    // System.out.println(pigLatinBest("cat!"));
+    // System.out.println(pigLatinBest("amazing?"));
+    // System.out.println(pigLatinBest("apple%"));
+    Scanner n = new Scanner( System.in );
+    while (n.hasNextLine()){
+      Scanner line = new Scanner(n.nextLine());
+        while (line.hasNext()){
+          System.out.print(pigLatinBest(line.next()));
+          System.out.print(" ");
+        }
+        //if (n.hasNextLine()){
+          System.out.println();
+        //}
+    }
   }
 
   public static String pigLatinSimple(String s1){
@@ -108,7 +119,7 @@ public class PigLatin{
     String s = s1.toLowerCase();
     String temp = "";
     if (Character.isLetter(s.charAt(0))){
-      if (!Character.isLetter(s.charAt(s.length()-1))){
+      if (!Character.isLetter(s.charAt(s.length()-1))&&!Character.isDigit(s.charAt(s.length()-1))){
         String finaladdon = Character.toString(s.charAt(s.length()-1));
         temp = pigLatin(s.substring(0,s.length()-1));
         temp += finaladdon;
